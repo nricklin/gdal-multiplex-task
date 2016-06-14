@@ -1,0 +1,50 @@
+{
+  "containerDescriptors": [
+    {
+      "type": "DOCKER",
+      "properties": {
+        "image": "nricklin/gdal-gbdx-task:latest"
+      }
+    }
+  ],
+  "description": "A task for running arbtrary gdal commands with bash on the commandline interface.  It automatically iterates over all files of type you specify, or just runs a single command, specified via string port input.",
+  "inputPortDescriptors": [
+    {
+      "required": true,
+      "type": "string",
+      "description": "The command to be exxecuted.  Substitute $input for input file, $output for output file, $indir for input directory, $outdir for output directory.",
+      "name": "command"
+    },
+    {
+      "required": false,
+      "type": "string",
+      "description": "Filetype to iterate over and run on.",
+      "name": "filetype"
+    },
+    {
+      "required": false,
+      "type": "string",
+      "description": "options: runonce | foreach.  Runonce executes the command once.  Foreach searches for files of type filetype, and runs the command for each one found.",
+      "name": "execution_strategy"
+    },
+    {
+      "required": true,
+      "type": "directory",
+      "description": "Input data directory.",
+      "name": "data"
+    }
+  ],
+  "outputPortDescriptors": [
+    {
+      "required": true,
+      "type": "directory",
+      "description": "Output data directory",
+      "name": "data"
+    }
+  ],
+  "properties": {
+    "isPublic": true,
+    "timeout": 7200
+  },
+  "name": "gdal-cli"
+}
