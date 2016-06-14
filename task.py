@@ -1,6 +1,6 @@
 import os, subprocess, json, glob2
-outdir = '/mnt/work/output'
-indir = '/mnt/work/input/data'
+outdir = '/mnt/work/output/data'
+indir = '/mnt/work/input/'
 
 input_data = json.load(open('/mnt/work/input/ports.json'))
 
