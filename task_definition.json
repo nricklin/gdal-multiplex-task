@@ -33,7 +33,7 @@
     }
   ],
   "properties": {
-    "isPublic": false,
+    "isPublic": true,
     "timeout": 7200
   },
   "name": "gdal-cli-multiplex"
