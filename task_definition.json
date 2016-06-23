@@ -7,25 +7,13 @@
       }
     }
   ],
-  "description": "A task for running arbtrary gdal commands with bash on the commandline interface.  It automatically iterates over all files of type you specify, or just runs a single command, specified via string port input.",
+  "description": "A task for running arbitrary gdal commands with bash on the commandline interface.  It executes a single command, specified via string port input.",
   "inputPortDescriptors": [
     {
       "required": true,
       "type": "string",
-      "description": "The command to be executed.  Substitute $input for input file, $output for output file, $indir for input directory, $outdir for output directory.",
+      "description": "The command to be executed.  Substitute $input for input directory, $outdir for output directory.",
       "name": "command"
-    },
-    {
-      "required": false,
-      "type": "string",
-      "description": "Filetype to iterate over and run on.",
-      "name": "filetype"
-    },
-    {
-      "required": false,
-      "type": "string",
-      "description": "options: runonce | foreach.  Runonce executes the command once.  Foreach searches for files of type filetype, and runs the command for each one found.",
-      "name": "execution_strategy"
     },
     {
       "required": true,
@@ -39,6 +27,7 @@
     {
       "required": true,
       "type": "directory",
+      "multiplex": true,
       "description": "Output data directory",
       "name": "data"
     }
