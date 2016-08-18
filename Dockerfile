@@ -1,7 +1,7 @@
 FROM tdgp/gdal
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
-RUN yum install -Y unzip
+RUN yum install -y unzip
 RUN python /get-pip.py
 RUN pip install glob2
 
