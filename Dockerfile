@@ -5,7 +5,7 @@ RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && apt-get update -y 
     gdal-bin \
     python-pip
     
-RUN pip install glob2
+RUN pip install -y glob2
 
 ADD task.py /task.py
 
