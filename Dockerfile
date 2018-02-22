@@ -1,8 +1,10 @@
-FROM tdgp/gdal
+FROM ubuntu:xenial
 
-RUN curl -O https://bootstrap.pypa.io/get-pip.py
-RUN yum install -y unzip
-RUN python /get-pip.py
+RUN apt-get update -y && apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && apt-get update -y && apt-get install -y --no-install-recommends \
+    gdal-bin \
+    python-pip
+    
 RUN pip install glob2
 
 ADD task.py /task.py
