@@ -1,40 +1,42 @@
 {
-  "containerDescriptors": [
-    {
-      "type": "DOCKER",
-      "properties": {
-        "image": "nricklin/gdal-multiplex-task:latest"
-      }
-    }
-  ],
-  "description": "A task for running arbitrary gdal commands with bash on the commandline interface.  It executes a single command, specified via string port input.",
-  "inputPortDescriptors": [
-    {
-      "required": true,
-      "type": "string",
-      "description": "The command to be executed.  Substitute $input for input directory, $outdir for output directory.",
-      "name": "command"
+    "containerDescriptors": [
+        {
+            "type": "DOCKER",
+            "properties": {
+                "image": "nricklin/gdal-multiplex-task:latest"
+            }
+        }
+    ],
+    "description": "A task for running arbitrary gdal (version 2.2.2) commands with bash on the commandline interface.  It executes a single command, specified via string port input.",
+    "inputPortDescriptors": [
+        {
+            "required": true,
+            "type": "string",
+            "description": "The command to be executed.  Substitute $input for input directory, $outdir for output directory.",
+            "name": "command"
+        },
+        {
+            "required": true,
+            "type": "directory",
+            "description": "Input data directory.",
+            "name": "data",
+            "multiplex": true
+        }
+    ],
+    "version": "0.0.2",
+    "outputPortDescriptors": [
+        {
+            "description": "Output data directory",
+            "required": true,
+            "type": "directory",
+            "multiplex": true,
+            "name": "data"
+        }
+    ],
+    "properties": {
+        "isPublic": true,
+        "timeout": 7200
     },
-    {
-      "required": true,
-      "type": "directory",
-      "multiplex": true,
-      "name": "data",
-      "description": "Input data directory."
-    }
-  ],
-  "outputPortDescriptors": [
-    {
-      "required": true,
-      "type": "directory",
-      "multiplex": true,
-      "description": "Output data directory",
-      "name": "data"
-    }
-  ],
-  "properties": {
-    "isPublic": true,
-    "timeout": 7200
-  },
-  "name": "gdal-cli-multiplex"
+    "name": "gdal-cli-multiplex",
+    "taskOwnerEmail": "nricklin@digitalglobe.com"
 }
