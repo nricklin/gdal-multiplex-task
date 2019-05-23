@@ -4,7 +4,7 @@
             "type": "DOCKER",
             "command": "python /scripts/task.py",
             "properties": {
-                "image": "mgleason/gdal-multiplex-task:latest"
+                "image": "mgleason/gdal-cli-multiplex:latest"
             }
         }
     ],
