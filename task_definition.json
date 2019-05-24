@@ -2,12 +2,13 @@
     "containerDescriptors": [
         {
             "type": "DOCKER",
+            "command": "python /scripts/task.py",
             "properties": {
-                "image": "nricklin/gdal-multiplex-task:latest"
+                "image": "mgleason/gdal-cli-multiplex:latest"
             }
         }
     ],
-    "description": "A task for running arbitrary gdal (version 2.2.2) commands with bash on the commandline interface.  It executes a single command, specified via string port input.",
+    "description": "A task for running arbitrary gdal (version 2.4.0) commands with bash on the commandline interface.  It executes a single command, specified via string port input.",
     "inputPortDescriptors": [
         {
             "required": true,
@@ -23,7 +24,7 @@
             "multiplex": true
         }
     ],
-    "version": "0.0.2",
+    "version": "0.0.3",
     "outputPortDescriptors": [
         {
             "description": "Output data directory",
@@ -38,5 +39,5 @@
         "timeout": 7200
     },
     "name": "gdal-cli-multiplex",
-    "taskOwnerEmail": "nricklin@digitalglobe.com"
+    "taskOwnerEmail": "michael.gleason@digitalglobe.com"
 }

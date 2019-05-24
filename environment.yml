@@ -1,0 +1,11 @@
+# environment.yml
+name: gdalenv
+channels: !!python/tuple
+- !!python/unicode
+  'conda-forge'
+- !!python/unicode
+  'defaults'
+dependencies:
+- conda-forge::python=3.6.6
+- conda-forge::click>=7.0,<8.0
+- conda-forge::gdal>=2.4.0,<2.5.0

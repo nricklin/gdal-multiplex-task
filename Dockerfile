@@ -1,13 +1,13 @@
-FROM ubuntu:xenial
+FROM continuumio/miniconda:latest
 
-RUN apt-get update -y && apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && apt-get update -y && apt-get install -y --no-install-recommends \
-    gdal-bin \
-    python-pip \
-    python-setuptools
-    
-RUN pip install glob2
+# create the conda environment
+RUN mkdir /helper
+COPY ./environment.yml /helper
+RUN conda env create -f /helper/environment.yml
 
-ADD task.py /task.py
-
-CMD python /task.py
+# move the scripts over
+RUN mkdir /scripts
+COPY task.py /scripts/task.py
+SHELL ["/bin/bash", "-c"]
+RUN echo "source activate gdalenv" > ~/.bashrc
+ENV PATH /opt/conda/envs/gdalenv/bin:$PATH
