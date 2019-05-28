@@ -4,7 +4,7 @@
             "type": "DOCKER",
             "command": "python /scripts/task.py",
             "properties": {
-                "image": "mgleason/gdal-cli-multiplex:latest"
+                "image": "nricklin/gdal-multiplex-task:latest"
             }
         }
     ],
@@ -39,5 +39,5 @@
         "timeout": 7200
     },
     "name": "gdal-cli-multiplex",
-    "taskOwnerEmail": "michael.gleason@digitalglobe.com"
+    "taskOwnerEmail": "nricklin@digitalglobe.com"
 }
