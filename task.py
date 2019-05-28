@@ -27,7 +27,7 @@ print('\n')
 with open(out_status, 'w') as f:
     # Note: return code isn't enough to capture errors that happen in a compound command
     # so use the presence of any error message as an indicator of failure
-    if returncode == 0 and err is None:
+    if returncode == 0 and err.decode() == '':
         msg = "SUCCESS: Execution of input command completed successfully."
         f.write(json.dumps({'status': 'success',
                             'reason': msg}))
